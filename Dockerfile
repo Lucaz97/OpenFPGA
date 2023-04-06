@@ -62,5 +62,5 @@ RUN git submodule add https://github.com/Lucaz97/RTL-eFPGA-redaction.git
 RUN echo 'export PS1="\[$(tput bold)\]\[\033[38;5;220m\]\u\[$(tput sgr0)\]:\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\]\\$\[$(tput sgr0) \]"' >> ~/.bashrc
 RUN echo 'alias codeopen="code-server -r "' >> ~/.bashrc
 RUN mkdir -p .vscode && echo '{"files.associations": {"*.openfpga": "shellscript"},"workbench.colorTheme": "Monokai"}' > .vscode/settings.json
-RUN export OPENFPGA_FLOW_PATH=path/to/OpenFPGA/openfpga_flow
-RUN export OPENFPGA_PY_INT=python3
+RUN echo 'export OPENFPGA_FLOW_PATH=path/to/OpenFPGA/openfpga_flow'> ~/.bashrc
+RUN echo 'export OPENFPGA_PY_INT=python3'>> ~/.bashrc
