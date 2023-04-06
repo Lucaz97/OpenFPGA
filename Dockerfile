@@ -59,6 +59,7 @@ RUN jupyter lab build
 WORKDIR /opt/openfpga/
 RUN git reset --hard HEAD
 RUN git submodule add https://github.com/Lucaz97/RTL-eFPGA-redaction.git
+
 # Set up terminal
 RUN echo 'export PS1="\[$(tput bold)\]\[\033[38;5;220m\]\u\[$(tput sgr0)\]:\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\]\\$\[$(tput sgr0) \]"' >> ~/.bashrc
 RUN echo 'alias codeopen="code-server -r "' >> ~/.bashrc
