@@ -13,7 +13,7 @@ RUN code-server --install-extension ms-python.python
 # For CSV file alignment
 RUN code-server --install-extension mechatroner.rainbow-csv
 # For VCD Viewer
-RUN wget -O _wavetrace.gz https://marketplace.visualstudio.com/_apis/public/gallery/publishers/wavetrace/vsextensions/wavetrace/1.1.2/vspackage
+#RUN wget -O _wavetrace.gz https://marketplace.visualstudio.com/_apis/public/gallery/publishers/wavetrace/vsextensions/wavetrace/1.1.2/vspackage
 RUN code-server --install-extension wavetrace.wavetrace
 # For XML Linting
 RUN code-server --install-extension dotjoshjohnson.xml
@@ -58,7 +58,7 @@ RUN jupyter serverextension enable --py jupyter_server_proxy
 RUN jupyter lab build
 WORKDIR /opt/openfpga/
 RUN git reset --hard HEAD
-
+RUN git submodule add https://github.com/Lucaz97/RTL-eFPGA-redaction.git
 # Set up terminal
 RUN echo 'export PS1="\[$(tput bold)\]\[\033[38;5;220m\]\u\[$(tput sgr0)\]:\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\]\\$\[$(tput sgr0) \]"' >> ~/.bashrc
 RUN echo 'alias codeopen="code-server -r "' >> ~/.bashrc
